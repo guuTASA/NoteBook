@@ -21,7 +21,6 @@
 
 你可以提出更改（把它们添加到暂存区），使用如下命令：
 `git add <filename>`
-`git add *`
 这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：
 `git commit -m "代码提交信息"`
 现在，你的改动已经提交到了 **HEAD**，但是还没到你的远端仓库。
@@ -52,9 +51,9 @@
 
 `git rm file`
 
-touch readme.txt 建立txt文件
+`touch readme.txt `建立txt文件
 
-mkdir name 建立文件夹
+`mkdir name` 建立文件夹
 
 
 
@@ -130,6 +129,37 @@ git checkout dev 切换到指定分支
 git checkout -b dev 新建并切换到当前分支
 
 git merge dev 合并某分支到当前分支
+
+
+
+### 7-git add的三种用法
+
+`git add -A`  提交所有变化
+
+`git add -u ` 提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
+
+`git add . ` 提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
+
+
+
+### 8-用户名和邮箱地址
+
+查看用户名和邮箱地址：
+
+```
+$ git config user.name
+$ git config user.email
+1234
+```
+
+修改用户名和邮箱地址：
+
+```
+$ git config --global user.name "username"
+$ git config --global user.email "email"
+```
+
+
 
 
 
