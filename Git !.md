@@ -30,9 +30,17 @@
 
 你的改动现在已经在本地仓库的 **HEAD** 中了。执行如下命令以将这些改动提交到远端仓库：
 `git push origin master`
+
+`git push -u origin master`		//-u 为首次
+
 可以把 *master* 换成你想要推送的任何分支。 
 如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：
 `git remote add origin <server>`
+
+`git remote add origin git@server-name:path/repo-name.git `
+
+`git remote add origin git@github.com/guuTASA/NoteBook.git`
+
 如此你就能够将你的改动推送到所添加的服务器上去了。
 
 
@@ -60,11 +68,9 @@ git pull --rebase origin master
 
 
 
-##### **4、此时可以查看远程仓库地址：**
+此时可以查看远程仓库地址：
 
 ` $ git remote -v`
-
-
 
 ```
 ##将本地test分支推送到远程服务器
@@ -75,9 +81,6 @@ Password for 'https://giscafer@git.oschina.net':
 Total 0 (delta 0), reused 0 (delta 0)
 To https://git.oschina.net/giscafer/Comments.git
  * [new branch]      test -> test
-
-
-
 
 ##切换到test分支
 giscafer@Faronsince2016 /G/002_project/Comments (master)
@@ -90,9 +93,6 @@ Switched to branch 'test'
     giscafer@Faronsince2016 /G/002_project/Comments (test)
 $ git branch -d test
 error: Cannot delete the branch 'test' which you are currently on.
-
-
-
 
 ##切换到其他分支
 giscafer@Faronsince2016 /G/002_project/Comments (test)
@@ -115,10 +115,37 @@ clone 所有分支：
 
 ​     git checkout dev5
 
-### 分支
+### 6-分支
 
 创建本地分支 `git branch xxxxx`
 
 查看本地分支`git branch`
 
 查看远程分支 `git branch -a`
+
+git branch -d dev  删除分支
+
+git checkout dev 切换到指定分支
+
+git checkout -b dev 新建并切换到当前分支
+
+git merge dev 合并某分支到当前分支
+
+
+
+----
+
+
+
+### 999-错误及解决方法
+
+#### fatal: remote origin already exists.
+
+解决方法：https://blog.csdn.net/dreamskyforjava/article/details/24322533
+
+> ​    1、先输入 git remote rm origin
+>     2、再输入 git remote add origin  https://github.com/(user_name)/(app_name).git 就不会报错了！
+>     3、如果输入 git remote rm origin 还是报错的话，error: Could not remove config section 'remote.origin'. 我们需要修             改gitconfig文件的内容
+>     4、找到你的github的安装路径，我的是                                       C:\Users\DELL\AppData\Local\GitHub\PortableGit_054f2e797ebafd44a30203088cd3d58663c627ef\etc            
+>
+> ​    5、找到一个名为gitconfig的文件，打开它把里面的[remote "origin"]那三行删掉就好了！
