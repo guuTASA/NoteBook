@@ -18,6 +18,24 @@
 
 
 
+git branch 查看所有分支
+
+git branch dev 新建分支指针
+
+git branch -d dev  删除分支
+
+git checkout dev 切换到指定分支
+
+git checkout -b dev 新建并切换到当前分支
+
+git merge dev 合并某分支到当前分支
+
+
+
+----
+
+
+
 ### 999-错误及解决方法
 
 #### fatal: remote origin already exists.
