@@ -40,7 +40,11 @@
 
 `git remote add origin git@github.com/guuTASA/NoteBook.git`
 
+`git remote add origin https://github.com/guuTASA/NoteBook.git`
+
 如此你就能够将你的改动推送到所添加的服务器上去了。
+
+`git remote rm origin` 删除
 
 
 
