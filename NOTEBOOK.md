@@ -1,6 +1,6 @@
-#NOTEBOOK
+# #NOTEBOOK
 
-##[1] MINST手写识别
+## ##[1] MINST手写识别
 
 **有监督的学习任务**
 
