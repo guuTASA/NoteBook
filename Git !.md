@@ -234,6 +234,30 @@ f457bedc02d9b663e7bcd5684722046b62ffeffb find some bugs
 6ddbe6865361f51cb2145c13f3464e6e1de15723 daily update
 ```
 
+以上，`HEAD->` 的是上一次commit提交上去的那个版本
+
+`origin/master`的是远程分支上边的版本
+
+
+
+### 13- git reset --hard HEAD^ 
+
+`git reset --hard commit_id`
+
+
+
+### 14- git reflog
+
+要重返未来，用`git reflog`查看命令历史，以便确定要回到未来的哪个版本 
+
+
+
+
+
+
+
+
+
 
 
 ----
@@ -262,3 +286,13 @@ https://www.cnblogs.com/horizonli/p/5323363.html
 ​	当创建文档的时候使用的环境是windows，而git运行环境在linux环境
 
 解决方法：git config --global core.autocrlf false
+
+#### 03- git reset --hard HEAD^  MORE?
+
+https://blog.csdn.net/simpleelegant/article/details/77413391
+
+然后各种百度发现原来在CMD中 ^ 是特殊字符，要使用时必须用双引号包括才行~
+
+```
+git reset --hard HEAD"^"
+```
