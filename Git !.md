@@ -153,7 +153,6 @@ git merge dev 合并某分支到当前分支
 ```
 $ git config user.name
 $ git config user.email
-1234
 ```
 
 修改用户名和邮箱地址：
@@ -163,7 +162,7 @@ $ git config --global user.name "username"
 $ git config --global user.email "email"
 ```
 
-
+> 注意`git config`命令的`--global`参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。 
 
 ### 9- 将 git add 和 git commit 合并为一步
 
@@ -207,8 +206,33 @@ $ git ls-files -s12
 
 
 
+### 11- git status、git diff
+
+status：查看修改的状态
+
+diff：查看区别在哪儿
 
 
+
+### 12- git log（--pretty=oneline）
+
+查看修改的记录（提交日志）
+
+显示的都是用SHA1加密过的 commit id + commit描述
+
+```s
+$ git log --pretty=oneline
+29c462ae571d8b9ba4c4b20d8dedb59e261b01b1 (HEAD -> master) test
+6ab7c14c78779f4687822774ea4f555cb3596bc5 (origin/master) commit test
+326d394601a2305df3b76f842a9971e7aec540c0 python3
+75b4b7dfbedce54ba5d713962db176130a618f97 daily update
+2677deab80206d63c01fa15d7f60588d8def4f14 fiddler
+3ef9eee2edc8b10e133dacac861c5de2099284cd daily update
+46c8dcd9e6c686caabb1460622ae6e50606f8089 daily update
+f457bedc02d9b663e7bcd5684722046b62ffeffb find some bugs
+659d9fa4d8bee6ddfd5ac146c80eadeb89a3a624 daily update
+6ddbe6865361f51cb2145c13f3464e6e1de15723 daily update
+```
 
 
 
