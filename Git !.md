@@ -181,13 +181,44 @@ git push: 把本地库的内容推到远程分支
 
 
 
+**三棵树**：https://blog.csdn.net/ligang2585116/article/details/51816372
+
+| 树                | 用途                                 |
+| ----------------- | ------------------------------------ |
+| HEAD              | 上一次提交的快照，下一次提交的父结点 |
+| Index             | 预期的下一次提交的快照               |
+| Working Directory | 沙盒                                 |
+
+**HEAD**：HEAD是当前分支引用的指针，它总是指向该分支上的最后一次提交。 这表示 HEAD 将是下一次提交的父结点。 通常，理解 HEAD 的最简方式，就是**将它看做你的上一次提交的快照**。
+
+```
+# 显示了 HEAD 快照实际的目录列表
+$ git cat-file -p HEAD12
+```
+
+**Index**：索引是你的“预期的下一次提交”–“暂存区域”，运行git add后，代码就进入“暂存区域”。
+
+```
+# 显示出索引当前的样子
+$ git ls-files -s12
+```
+
+**Working Directory**：可以把工作目录当做“沙盒”。在将修改提交到暂存区并记录到历史之前，可以随意更改。 
+
+
+
+
+
+
+
+
 ----
 
 
 
 ### 999-错误及解决方法
 
-#### fatal: remote origin already exists.
+#### 01- fatal: remote origin already exists.
 
 解决方法：https://blog.csdn.net/dreamskyforjava/article/details/24322533
 
@@ -197,3 +228,13 @@ git push: 把本地库的内容推到远程分支
 >     4、找到你的github的安装路径，我的是                                       C:\Users\DELL\AppData\Local\GitHub\PortableGit_054f2e797ebafd44a30203088cd3d58663c627ef\etc            
 >
 > ​    5、找到一个名为gitconfig的文件，打开它把里面的[remote "origin"]那三行删掉就好了！
+
+#### 02- LF will be replaced by CRLF in test.txt. 
+
+https://www.cnblogs.com/horizonli/p/5323363.html
+
+原因：LF是linux下的换行符，而CRLF是enter + 换行
+
+​	当创建文档的时候使用的环境是windows，而git运行环境在linux环境
+
+解决方法：git config --global core.autocrlf false
