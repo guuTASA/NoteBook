@@ -165,6 +165,20 @@ $ git config --global user.email "email"
 
 
 
+### 9- 将 git add 和 git commit 合并为一步
+
+git commit -am"This is a commit created by xxx" 
+
+
+
+### 10- git add 、git commit 、 git push的区别
+
+git add: 把文件推到暂存区（stage）
+
+git commit: 一次性把暂存区的所有修改提交到本地库的分支 
+
+git push: 把本地库的内容推到远程分支
+
 
 
 ----
