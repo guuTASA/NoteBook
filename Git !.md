@@ -1,23 +1,71 @@
 # Git !
 
-### 1-创建新仓库
+### 1-创建新仓库 git init
 
 创建新文件夹，打开，然后执行 
 `git init`
 以创建新的 git 仓库。
 
-### 2-检出仓库
+
+
+### 2-检出仓库 git clone
 
 执行如下命令以创建一个本地仓库的克隆版本：
 `git clone /path/to/repository` 
 如果是远端服务器上的仓库，你的命令会是这个样子：
 `git clone username@host:/path/to/repository`
 
-### 3-工作流
+
+
+### 3-工作流 （三棵树）
 
 你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 `工作目录`，它持有实际文件；第二个是 `暂存区（Index）`，它像个缓存区域，临时保存你的改动；最后是 `HEAD`，它指向你最后一次提交的结果。
 
-### 4-添加和提交
+
+
+**三棵树**：https://blog.csdn.net/ligang2585116/article/details/51816372
+
+| 树                | 用途                                 |
+| ----------------- | ------------------------------------ |
+| HEAD              | 上一次提交的快照，下一次提交的父结点 |
+| Index             | 预期的下一次提交的快照               |
+| Working Directory | 沙盒                                 |
+
+##### 1.**HEAD**
+
+HEAD是当前分支引用的指针，它总是指向该分支上的最后一次提交。 这表示 HEAD 将是下一次提交的父结点。 通常，理解 HEAD 的最简方式，就是**将它看做你的上一次提交的快照**。
+
+```
+# 显示了 HEAD 快照实际的目录列表
+$ git cat-file -p HEAD12
+```
+
+##### 2.**Index**
+
+索引是你的“预期的下一次提交”–“暂存区域”，运行git add后，代码就进入“暂存区域”。
+
+```
+# 显示出索引当前的样子
+$ git ls-files -s12
+```
+
+##### 3.**Working Directory**
+
+可以把工作目录当做“沙盒”。在将修改提交到暂存区并记录到历史之前，可以随意更改。 
+
+
+
+##### **git add 、git commit 、 git push的区别**
+
+git add: 把文件推到暂存区（stage / index）
+
+git commit: 一次性把暂存区的所有修改提交到本地库的分支 
+
+git push: 把本地库的内容推到远程分支
+
+
+
+### 4-添加和提交 git add 、 git commit
 
 你可以提出更改（把它们添加到暂存区），使用如下命令：
 `git add <filename>`
@@ -25,7 +73,17 @@
 `git commit -m "代码提交信息"`
 现在，你的改动已经提交到了 **HEAD**，但是还没到你的远端仓库。
 
-### 5-推送改动
+##### git add的三种用法
+
+`git add -A`  提交所有变化
+
+`git add -u ` 提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
+
+`git add . ` 提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
+
+
+
+### 5-推送改动 git push
 
 你的改动现在已经在本地仓库的 **HEAD** 中了。执行如下命令以将这些改动提交到远端仓库：
 `git push origin master`
@@ -51,9 +109,9 @@
 要更新你的本地仓库至最新改动，执行：
 `git pull`
 
-如何你想从资源库中删除文件，我们使用rm。
 
-`git rm file`
+
+
 
 `touch readme.txt `建立txt文件
 
@@ -114,7 +172,7 @@ clone 所有分支：
 
 　　git   clone  https://git.coding.net/aiyongbao/tradepc.git      tradepc_zzgdapp
 
-​     git　　branch -r
+​     git　branch -r
 
 ​     git checkout dev5
 
@@ -136,13 +194,7 @@ git merge dev 合并某分支到当前分支
 
 
 
-### 7-git add的三种用法
-
-`git add -A`  提交所有变化
-
-`git add -u ` 提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
-
-`git add . ` 提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
+### 7-
 
 
 
@@ -164,45 +216,17 @@ $ git config --global user.email "email"
 
 > 注意`git config`命令的`--global`参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。 
 
+
+
 ### 9- 将 git add 和 git commit 合并为一步
 
 git commit -am"This is a commit created by xxx" 
 
 
 
-### 10- git add 、git commit 、 git push的区别
-
-git add: 把文件推到暂存区（stage）
-
-git commit: 一次性把暂存区的所有修改提交到本地库的分支 
-
-git push: 把本地库的内容推到远程分支
+### 10- 
 
 
-
-**三棵树**：https://blog.csdn.net/ligang2585116/article/details/51816372
-
-| 树                | 用途                                 |
-| ----------------- | ------------------------------------ |
-| HEAD              | 上一次提交的快照，下一次提交的父结点 |
-| Index             | 预期的下一次提交的快照               |
-| Working Directory | 沙盒                                 |
-
-**HEAD**：HEAD是当前分支引用的指针，它总是指向该分支上的最后一次提交。 这表示 HEAD 将是下一次提交的父结点。 通常，理解 HEAD 的最简方式，就是**将它看做你的上一次提交的快照**。
-
-```
-# 显示了 HEAD 快照实际的目录列表
-$ git cat-file -p HEAD12
-```
-
-**Index**：索引是你的“预期的下一次提交”–“暂存区域”，运行git add后，代码就进入“暂存区域”。
-
-```
-# 显示出索引当前的样子
-$ git ls-files -s12
-```
-
-**Working Directory**：可以把工作目录当做“沙盒”。在将修改提交到暂存区并记录到历史之前，可以随意更改。 
 
 
 
@@ -212,7 +236,13 @@ status：查看修改的状态
 
 diff：查看区别在哪儿
 
+​ `git diff `比较的是工作区文件与暂存区文件的区别
 
+​ `git diff --cached` 比较的是暂存区的文件与仓库分支里的区别 
+
+> git diff比较的是工作目录中当前文件和暂存区域快照之间的差异， 也就是修改之后还没有暂存起来的变化内容。若要查看已暂存的将要添加到下次提交里的内容，可以用 git diff --cached 命令。
+>
+> 请注意，git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动。 所以有时候你一下子暂存了所有更新过的文件后，运行 git diff 后却什么也没有，就是这个原因。
 
 ### 12- git log（--pretty=oneline）
 
@@ -252,9 +282,27 @@ f457bedc02d9b663e7bcd5684722046b62ffeffb find some bugs
 
 
 
+### 15- git checkout -- file、 git reset HEAD \<file>
+
+文件已修改，未add到暂存区: `git checkout -- <file>`可还原
+
+文件已修改，并add到暂存区未commit： `git read HEAD <file>` ` git checkout -- <file>`可还原
 
 
 
+### 16- git rm \<file>
+
+手动删除文件，然后`git rm`，然后`git commit`
+
+恢复：`git checkout -- <file>` 恢复文件到最新版本，最近一次的修改会丢失
+
+
+
+### 17- gitlab
+
+左转 百度百科：https://baike.baidu.com/item/gitlab/3059600
+
+自己的理解：可以搭一个库（私人的）+ 一套可以用web访问的管理系统
 
 
 
