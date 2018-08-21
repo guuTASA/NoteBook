@@ -194,7 +194,19 @@ git merge dev 合并某分支到当前分支
 
 
 
-### 7-
+### 7-git status、git diff
+
+status：查看修改的状态
+
+diff：查看区别在哪儿
+
+​ `git diff `比较的是工作区文件与暂存区文件的区别
+
+​ `git diff --cached` 比较的是暂存区的文件与仓库分支里的区别 
+
+> git diff比较的是工作目录中当前文件和暂存区域快照之间的差异， 也就是修改之后还没有暂存起来的变化内容。若要查看已暂存的将要添加到下次提交里的内容，可以用 git diff --cached 命令。
+>
+> 请注意，git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动。 所以有时候你一下子暂存了所有更新过的文件后，运行 git diff 后却什么也没有，就是这个原因。
 
 
 
@@ -224,25 +236,21 @@ git commit -am"This is a commit created by xxx"
 
 
 
-### 10- 
+### 10- GITLAB 
+
+左转 百度百科：https://baike.baidu.com/item/gitlab/3059600
+
+自己的理解：可以搭一个库（私人的）+ 一套可以用web访问的管理系统
 
 
 
+### 11- git rm \<file>
+
+手动删除文件，然后`git rm`，然后`git commit`
+
+恢复：`git checkout -- <file>` 恢复文件到最新版本，最近一次的修改会丢失
 
 
-### 11- git status、git diff
-
-status：查看修改的状态
-
-diff：查看区别在哪儿
-
-​ `git diff `比较的是工作区文件与暂存区文件的区别
-
-​ `git diff --cached` 比较的是暂存区的文件与仓库分支里的区别 
-
-> git diff比较的是工作目录中当前文件和暂存区域快照之间的差异， 也就是修改之后还没有暂存起来的变化内容。若要查看已暂存的将要添加到下次提交里的内容，可以用 git diff --cached 命令。
->
-> 请注意，git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动。 所以有时候你一下子暂存了所有更新过的文件后，运行 git diff 后却什么也没有，就是这个原因。
 
 ### 12- git log（--pretty=oneline）
 
@@ -290,19 +298,15 @@ f457bedc02d9b663e7bcd5684722046b62ffeffb find some bugs
 
 
 
-### 16- git rm \<file>
+### 16- 协议：HTTP/SSH
 
-手动删除文件，然后`git rm`，然后`git commit`
+GitHub给出的地址不止一个，还可以用`https://github.com/michaelliao/gitskills.git`这样的地址。实际上，Git支持多种协议，默认的`git://`使用ssh，但也可以使用`https`等其他协议。
 
-恢复：`git checkout -- <file>` 恢复文件到最新版本，最近一次的修改会丢失
+使用`https`除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
 
+通过`ssh`支持的原生`git`协议速度最快。 
 
-
-### 17- gitlab
-
-左转 百度百科：https://baike.baidu.com/item/gitlab/3059600
-
-自己的理解：可以搭一个库（私人的）+ 一套可以用web访问的管理系统
+### 17- 
 
 
 
